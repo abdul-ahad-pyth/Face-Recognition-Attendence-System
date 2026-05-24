@@ -57,7 +57,7 @@ A professional real-time attendance system built with Python, OpenCV, and Face R
 
    Numpy
 
-Developed with  by []
+Developed with  by [abdul-ahad-pyth]
 
 
 
