@@ -2,10 +2,11 @@ import cv2
 import face_recognition
 import pickle
 import numpy as np
-from datetime import date
+from datetime import datetime
 import os
 
 from Mark_AttendanceFunction import mark_attendance 
+
 
 
 with open("encodings.pkl", "rb") as f:
@@ -67,8 +68,14 @@ while True:
 
     cv2.imshow("Student Attendance System - Press Q to Quit", frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key= cv2.waitKey(1) & 0xFF 
+    if key==ord('q'):
         break
+    elif key == ord('s'):
+        filename = f"screenshot_{datetime.now().strftime('%H%M%S')}.jpg"
+        cv2.imwrite(filename, frame)
+        print(f"Saved: {filename}")
+
 
 cap.release()
 cv2.destroyAllWindows()
